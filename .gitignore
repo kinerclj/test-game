@@ -28,3 +28,6 @@ node_modules
 
 # config
 config/default.json
+
+# game
+public/js/game.js

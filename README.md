@@ -6,13 +6,21 @@
 
     npm install
 
-#### Run with watcher
+#### Build game
 
-    npm run dev
+    grunt build
 
-#### Run
+#### Build game with watcher
+
+    grunt watch
+
+#### Run server
 
     npm start
+
+#### Run server with watcher
+
+    npm run dev
 
 #### Test
 

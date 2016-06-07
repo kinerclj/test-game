@@ -40,6 +40,11 @@
     "three": "^0.77.1"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-watch": "^1.0.0",
     "mocha": "^2.3.4",
     "nodemon": "^1.8.1",
     "should": "^8.2.0",

@@ -8,6 +8,7 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
+const serve = require('koa-static');
 
 const index = require('./routes/index');
 
@@ -15,19 +16,20 @@ const index = require('./routes/index');
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-app.use(convert(require('koa-static')(__dirname + '/public')));
+
+app.use(convert(serve(__dirname + '/public')));
 
 app.use(convert(views('views', {
   root: __dirname + '/views',
   default: 'jade'
 })));
 
-app.use(co.wrap(function *(ctx, next){
+app.use(co.wrap(function *(ctx, next) {
   ctx.render = co.wrap(ctx.render);
   yield next();
 }));
 
-app.use(co.wrap(function *(ctx, next){
+app.use(co.wrap(function *(ctx, next) {
   const start = new Date;
   yield next();
   const ms = new Date - start;
