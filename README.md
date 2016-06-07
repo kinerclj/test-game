@@ -10,9 +10,9 @@
 
     grunt build
 
-#### Build game with watcher
+#### Watch game dev
 
-    grunt watch
+    grunt
 
 #### Run server
 

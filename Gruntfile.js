@@ -14,7 +14,7 @@ module.exports = function (grunt) {
       },
       watch: {
          scripts: {
-            files: [ 'game/**/*.js'],
+            files: ['game/index.js'],
             tasks: ['browserify']
          }
       }
@@ -24,6 +24,5 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-watch');
 
    grunt.registerTask('default', ['watch']);
-   grunt.registerTask('watch', ['watch']);
    grunt.registerTask('build', ['browserify']);
 };
