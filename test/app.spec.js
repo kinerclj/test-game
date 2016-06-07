@@ -9,7 +9,6 @@ describe('index', function () {
   it('should say "Test Game"', function (done) {
     request
       .get('/')
-      .expect(200)
-      .expect('Test Game', done);
+      .expect(200, done);
   });
 });
