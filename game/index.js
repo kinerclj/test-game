@@ -1,38 +1,32 @@
 import THREE from 'three';
+import * as CameraEntity from './entities/camera';
+import * as WorldEntity from './entities/world';
+import * as PlayerEntity from './entities/player';
 
-var scene, camera, renderer;
-var geometry, material, mesh;
+let scene, renderer, camera, world, player;
 
 init();
 animate();
 
 function init() {
 
-    scene = new THREE.Scene();
+  scene = new THREE.Scene();
+  camera = CameraEntity.create();
+  world = WorldEntity.create();
+  player = PlayerEntity.create();
 
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 1000;
+  scene.add(world);
+  scene.add(player);
 
-    geometry = new THREE.BoxGeometry( 200, 200, 200 );
-    material = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
+  renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-    mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
-
-    renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-    document.body.appendChild( renderer.domElement );
-
+  document.body.appendChild(renderer.domElement);
 }
 
 function animate() {
 
-    requestAnimationFrame( animate );
+  requestAnimationFrame(animate);
 
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
-
-    renderer.render( scene, camera );
-
+  renderer.render(scene, camera);
 }
