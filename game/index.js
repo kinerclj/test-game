@@ -1,4 +1,6 @@
 import THREE from 'three';
+import KEY from 'keymaster';
+
 import * as CameraEntity from './entities/camera';
 import * as WorldEntity from './entities/world';
 import * as PlayerEntity from './entities/player';
@@ -27,6 +29,8 @@ function init() {
 function animate() {
 
   requestAnimationFrame(animate);
+
+  PlayerEntity.inputs(player);
 
   renderer.render(scene, camera);
 }
